@@ -5,8 +5,7 @@ from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langgraph.checkpoint.sqlite import SqliteSaver
 from langgraph.constants import END, START
 from langgraph.graph import MessagesState, StateGraph
-from langchain_huggingface import HuggingFacePipeline, ChatHuggingFace
-
+from langchain_huggingface import ChatHuggingFace, HuggingFaceEndpoint
 
 
 class State(MessagesState):
@@ -39,15 +38,13 @@ def create_llm():
         ]
     )
 
-    llm = HuggingFacePipeline.from_model_id(
-        model_id="aifeifei798/DarkIdol-Llama-3.1-8B-Instruct-1.2-Uncensored",
+    llm = HuggingFaceEndpoint(
+        repo_id="meta-llama/Meta-Llama-3.1-405B-Instruct",
         task="text-generation",
-        pipeline_kwargs = dict(
-            max_new_tokens=512,
-            do_sample=False,
-            repetition_penalty=1.03,
-            return_full_text=False,
-        ),
+        max_new_tokens=512,
+        do_sample=False,
+        repetition_penalty=1.03,
+
     )
 
     chain = prompt | ChatHuggingFace(llm=llm)
