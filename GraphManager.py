@@ -2,10 +2,11 @@ from typing import Literal
 
 from langchain_core.messages import HumanMessage, RemoveMessage, SystemMessage
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
+from langchain_together import ChatTogether
+
 from langgraph.checkpoint.sqlite import SqliteSaver
 from langgraph.constants import END, START
 from langgraph.graph import MessagesState, StateGraph
-from langchain_huggingface import ChatHuggingFace, HuggingFaceEndpoint
 
 
 class State(MessagesState):
@@ -38,16 +39,11 @@ def create_llm():
         ]
     )
 
-    llm = HuggingFaceEndpoint(
-        repo_id="meta-llama/Meta-Llama-3.1-405B-Instruct",
-        task="text-generation",
-        max_new_tokens=512,
-        do_sample=False,
-        repetition_penalty=1.03,
-
+    chat = ChatTogether(
+        model="meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo"
     )
 
-    chain = prompt | ChatHuggingFace(llm=llm)
+    chain = prompt | chat
 
     return chain
 

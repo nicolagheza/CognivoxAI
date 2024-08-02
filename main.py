@@ -19,7 +19,7 @@ Utils.set_env("LANGCHAIN_TRACING_V2")
 Utils.set_env("LANGCHAIN_API_KEY")
 Utils.set_env("LANGCHAIN_ENDPOINT")
 Utils.set_env("LANGCHAIN_PROJECT")
-Utils.set_env("HUGGINGFACEHUB_API_TOKEN")
+Utils.set_env("TOGETHER_API_KEY")
 
 
 def is_subscribed(chat_id, user_id):
