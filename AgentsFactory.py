@@ -27,7 +27,7 @@ class AgentsFactory:
         )
 
         chat = ChatTogether(
-            model="meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo"
+            model="meta-llama/Meta-Llama-3.1-405B-Instruct-Turbo"
         )
 
         chain = prompt | chat
