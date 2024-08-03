@@ -1,51 +1,16 @@
 from typing import Literal
 
 from langchain_core.messages import HumanMessage, RemoveMessage, SystemMessage
-from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
-from langchain_together import ChatTogether
 
 from langgraph.checkpoint.sqlite import SqliteSaver
 from langgraph.constants import END, START
 from langgraph.graph import MessagesState, StateGraph
 
+from AgentsFactory import AgentsFactory
+
 
 class State(MessagesState):
     summary: str
-
-
-def create_llm():
-    # prompt = ChatPromptTemplate.from_messages(
-    #     [
-    #         (
-    #             "system",
-    #             """You are a helpful assistant named Erina. Answer all questions to the best of your ability.
-    #             Use The provided tools to search for information that you do not know. "
-    #             Be persistent, expand your query bounds if the first search returns no results."
-    #             If a search comes up empty, expand your search before giving up.",
-    #             You are allowed to use emojis when needed."""
-    #         ),
-    #         MessagesPlaceholder(variable_name="messages"),
-    #     ]
-    # )
-
-    prompt = ChatPromptTemplate.from_messages(
-        [
-            (
-                "system",
-                """You are a helpful assistant named Cognivox. Answer all questions to the best of your ability. 
-                You are allowed to use emojis when needed."""
-            ),
-            MessagesPlaceholder(variable_name="messages"),
-        ]
-    )
-
-    chat = ChatTogether(
-        model="meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo"
-    )
-
-    chain = prompt | chat
-
-    return chain
 
 
 class GraphManager:
@@ -67,7 +32,7 @@ class GraphManager:
     def create_graph(self):
         graph_builder = StateGraph(State)
 
-        llm = create_llm()
+        llm = AgentsFactory.create_agent()
 
         def chatbot(state: State):
             summary = state.get("summary")

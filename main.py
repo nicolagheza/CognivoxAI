@@ -52,13 +52,13 @@ client = Groq(api_key=GROQ_API_KEY)
 
 
 @bot.message_handler(commands=['start', 'help'])
-def send_start_help_message(message):
+def start_help_message(message):
     if check_subscription(message):
         bot.reply_to(message, 'Hello I am Cognivox AI. A friendly bot created by nicode.solutions')
 
 
 @bot.message_handler(commands=['clearcontext'])
-def send_start_help_message(message):
+def clear_context_message(message):
     if check_subscription(message):
         bot.reply_to(message, '🗑 Context has been cleaned.️')
 
