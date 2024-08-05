@@ -15,10 +15,7 @@
 ## Requirements
 
 * Python 3.8 or higher
-* LangChain API key (sign up for free at [Togheter.ai](https://www.toghter.ai/))
-* Telegram Bot API key (create a bot at [BotFather](https://t.me/BotFather))
-* GROQ API key (sign up for free at [Groq](https://groq.com/))
-* Telegram Channel ID (create a new channel and add the bot as an administrator)
+* Check .env.example
 
 ## Installation
 
