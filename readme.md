@@ -4,29 +4,41 @@
 
 ## Features
 
-💬 **Conversational Interface**: Engage in natural-sounding conversations with Cognivox AI, powered by LLaMA 3.1's advanced language understanding and generation capabilities.
+💬 Conversational Interface: Engage in natural-sounding conversations with Cognivox AI, powered by LLaMA 3.1's advanced language understanding and generation capabilities.
 
-📚 **Knowledge Graph**: Our bot leverages LangGraph to construct a vast knowledge graph, providing users with accurate and up-to-date information on a wide range of topics.
+📚 Knowledge Graph: Our bot leverages LangGraph to construct a vast knowledge graph, providing users with accurate and up-to-date information on a wide range of topics.
 
-🤖 **Customizable**: With our open-source codebase, developers can easily modify and extend Cognivox AI's functionality to suit their specific needs.
+🤖 Customizable: With our open-source codebase, developers can easily modify and extend Cognivox AI's functionality to suit their specific needs.
 
-📊 **Scalable**: Built using LangChain, our bot can handle a high volume of conversations simultaneously, making it perfect for large-scale deployments.
+📊 Scalable: Built using LangChain, our bot can handle a high volume of conversations simultaneously, making it perfect for large-scale deployments.
 
 ## Requirements
 
 * Python 3.8 or higher
-* LangChain API key (sign up for free at [Toghter.ai](https://www.toghter.ai/))
+* LangChain API key (sign up for free at [Togheter.ai](https://www.toghter.ai/))
 * Telegram Bot API key (create a bot at [BotFather](https://t.me/BotFather))
+* GROQ API key (sign up for free at [Groq](https://groq.com/))
+* Telegram Channel ID (create a new channel and add the bot as an administrator)
 
 ## Installation
 
-1. Clone this repository: `git clone https://github.com/your-repo/Cognivox-AI.git`
-2. Install dependencies: `pip install -r requirements.txt`
+1. Clone this repository: git clone https://github.com/your-repo/Cognivox-AI.git
+2. Install dependencies: pip install -r requirements.txt
 3. Configure your environment variables:
- * `TG_BOT_TOKEN`: Your Telegram bot token
- * `TOGHTER_API_KEY`: Your Toghter.ai API key
- * `LANGCHAIN_API_KEY`: Your LangChain API key (same as TOGHTER_API_KEY)
-4. Run the bot: `python main.py`
+ * TELEGRAM_API_KEY: Your Telegram bot token
+ * TOGHETER_API_KEY: Your togheter.ai API key
+ * LANGCHAIN_API_KEY: Your LangChain API key
+ * GROQ_API_KEY: Your Groq API key for Whisper
+ * TELEGRAM_CHANNEL_ID: The ID of the Telegram channel where the bot will be deployed (required for bot access)
+4. Run the bot: python main.py
+
+**Note:** To obtain the `TELEGRAM_CHANNEL_ID`, follow these steps:
+
+1. Create a new Telegram channel.
+2. Add the bot as an administrator to the channel.
+3. Go to the channel settings and click on the three dots next to the channel name.
+4. Select "Edit" and then click on the " Channel ID" field.
+5. Copy the Channel ID and add it to your environment variables.
 
 ## Contributing
 
@@ -39,6 +51,7 @@ Cognivox AI is released under the [MIT License](https://opensource.org/licenses/
 ## Acknowledgments
 
 * Special thanks to Toghter.ai for providing access to the LangChain API.
+* Special thanks to Groq for providing access to the GROQ API.
 
 ## Community
 
